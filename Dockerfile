@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
  && tar -xvf *.tar \
  && rm *.tar \
  && ./amdgpu-pro-17.50-511655/amdgpu-pro-install --opencl=legacy,rocm --headless -y \
- && rm -rf ./*
+ && rm -rf ./* \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /ethminer \
