@@ -1,8 +1,8 @@
-FROM library/ubuntu:focal
+FROM library/ubuntu:groovy
 
 LABEL "maintainer"="Chris Diehl <cultclassik@gmail.com>"
 
-ENV AMD_DRIVER="https://storageroot.blob.core.windows.net/mining/amdgpu-pro-20.20-1089974-ubuntu-20.04.tar.xz?sp=r&st=2020-07-24T01:00:26Z&se=2020-07-31T09:00:26Z&spr=https&sv=2019-12-12&sr=b&sig=mkkR34VnuD2RSUejN%2B%2F69Ra3jh%2F9FvGFccxV%2FdL9feQ%3D"
+ENV AMD_DRIVER="https://storageroot.blob.core.windows.net/mining/amdgpu-pro-19.50-967956-ubuntu-18.04.tar.xz?sp=r&st=2020-07-24T01:43:59Z&se=2020-08-07T09:43:59Z&spr=https&sv=2019-12-12&sr=b&sig=9iYu%2BIek2rxTxRnoxvg1KHp4HGEALs%2BLYq%2BqGLduD9U%3D"
 ENV MINER_URL="https://github.com/ethereum-mining/ethminer/releases/download/v0.18.0/ethminer-0.18.0-cuda-9-linux-x86_64.tar.gz"
 ENV ETH_ADDR="0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763"
 
