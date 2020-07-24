@@ -12,13 +12,15 @@ RUN apt-get update && apt-get install -y \
     apt-utils \
     libcurl4 \
     wget \
-    xz-utils \
- && wget -O amd_driver.tar.xz ${AMD_DRIVER} \
+    xz-utils
+
+RUN wget -O amd_driver.tar.xz ${AMD_DRIVER} \
  && unxz amd_driver.tar.xz \
  && mkdir ./driver && cd ./driver \
  && tar -xvf ../amd_driver.tar --strip-components=1 \
  && rm ../*.tar \
- && ./amdgpu-pro-install --opencl=legacy,rocm --headless --no-dkms -y \
+ #&& ./amdgpu-pro-install --opencl=legacy,rocm --headless --no-dkms -y \
+ && ./amdgpu-install --opencl=legacy,rocm --headless --no-dkms -y \
  && cd .. \
  && rm -rf ./driver \
  && rm -rf /var/lib/apt/lists/*
