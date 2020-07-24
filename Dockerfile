@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
  && mkdir ./driver && cd ./driver \
  && tar -xvf ../amd_driver.tar --strip-components=1 \
  && rm ../*.tar \
- && ./amdgpu-pro-install --opencl=legacy,rocm --headless -y \
+ && ./amdgpu-pro-install --opencl=legacy,rocm --headless --no-dkms -y \
  && cd .. \
  && rm -rf ./driver \
  && rm -rf /var/lib/apt/lists/*
