@@ -12,12 +12,14 @@ RUN apt-get update && apt-get install -y \
     libcurl4 \
     wget \
     xz-utils \
- && wget ${AMD_DRIVER} \
- && unxz amdgpu-pro-20.20-1089974-ubuntu-20.04.tar.xz \
- && tar -xvf *.tar \
- && rm *.tar \
- && ./amdgpu-pro-20.20-1089974/amdgpu-pro-install --opencl=legacy,rocm --headless -y \
- && rm -rf ./* \
+ && wget -O amd_driver.tar.xz ${AMD_DRIVER} \
+ && unxz amd_driver.tar.xz \
+ && mkdir ./driver && cd ./driver \
+ && tar -xvf ../amd_driver.tar --strip-components=1 \
+ && rm ../*.tar \
+ && ./amdgpu-pro-install --opencl=legacy,rocm --headless -y \
+ && cd .. \
+ && rm -rf ./driver \
  && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /ethminer \
