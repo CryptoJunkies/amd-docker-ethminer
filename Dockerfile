@@ -1,4 +1,4 @@
-FROM library/ubuntu:groovy
+FROM library/ubuntu:bionic
 
 LABEL "maintainer"="Chris Diehl <cultclassik@gmail.com>"
 
@@ -9,6 +9,7 @@ ENV ETH_ADDR="0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763"
 WORKDIR /tmp
 
 RUN apt-get update && apt-get install -y \
+    apt-utils \
     libcurl4 \
     wget \
     xz-utils \
