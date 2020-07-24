@@ -1,11 +1,10 @@
-# amd-docker-ethminer [![Build Status](https://travis-ci.org/CryptoJunkies/amd-docker-ethminer.svg?branch=master)](https://travis-ci.org/CryptoJunkies/amd-docker-ethminer)
 [Image on Docker Hub](https://hub.docker.com/r/cryptojunkies/ethminer/)
 
 Dockerfile to build cryptojunkies/ethminer GPU container.
 
 ## Pre-requisites
 
-Requires a working installation of Docker CE or EE and Nvidia-Docker2.
+Requires a working installation of Docker CE or EE
 
 ## Installation
 
@@ -13,7 +12,7 @@ docker build -t cryptojunkies/ethminer:latest-amd .
 
 ## Usage
 
-docker run --runtime=nvidia --device /dev/dri:/dev/dri cryptojunkies/ethminer:latest-amd "-RH -U -S pool_1_url -FS pool_2_url -O eth_address"
+docker run --hostname miner01-gpu0 --env ETH_ADDR='0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763' --device /dev/dri:/dev/dri cryptojunkies/ethminer:latest-amd
 
 ## Contributing
 
