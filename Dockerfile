@@ -1,4 +1,4 @@
-FROM library/ubuntu:focul
+FROM library/ubuntu:focal
 
 LABEL "maintainer"="Chris Diehl <cultclassik@gmail.com>"
 
@@ -13,10 +13,10 @@ RUN apt-get update && apt-get install -y \
     wget \
     xz-utils \
  && wget ${AMD_DRIVER} \
- && unxz amdgpu-pro-17.50-511655.tar.xz \
+ && unxz amdgpu-pro-20.20-1089974-ubuntu-20.04.tar.xz \
  && tar -xvf *.tar \
  && rm *.tar \
- && ./amdgpu-pro-17.50-511655/amdgpu-pro-install --opencl=legacy,rocm --headless -y \
+ && ./amdgpu-pro-20.20-1089974/amdgpu-pro-install --opencl=legacy,rocm --headless -y \
  && rm -rf ./* \
  && rm -rf /var/lib/apt/lists/*
 
