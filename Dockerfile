@@ -20,7 +20,6 @@ RUN wget -O amd_driver.tar.xz ${AMD_DRIVER} \
  && mkdir ./driver && cd ./driver \
  && tar -xvf ../amd_driver.tar --strip-components=1 \
  && rm ../*.tar \
- #&& ./amdgpu-pro-install --opencl=legacy,rocm --headless --no-dkms -y \
  && ./amdgpu-install --opencl=legacy,rocm --headless --no-dkms -y \
  && cd .. \
  && rm -rf ./driver \
@@ -36,4 +35,6 @@ WORKDIR /ethminer
 EXPOSE 3333/tcp
 
 ENTRYPOINT [ "/ethminer/ethminer" ]
-CMD [ "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}-${GPU_ID}.${HOSTNAME}@us2.ethermine.org:4444", "-HWMON", "1", "-R", "-U", "--farm-recheck", "2000", "--opencl-device", "${GPU_ID}" ]
+CMD [ "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}-${GPU_ID}.${HOSTNAME}@us2.ethermine.org:4444", "-HWMON", "1", "-R", "-U", "-G", "--farm-recheck", "2000", "--opencl-device", "${GPU_ID}" ]
+
+

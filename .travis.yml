@@ -8,7 +8,7 @@ services:
   - docker
 
 script:
-  - TAG="0.13.0-amd"
+  - TAG="0.18.0-amd"
   - TAGL="latest-amd"
   - CONT_NAME="ethminer"
   - REPO="cryptojunkies"
