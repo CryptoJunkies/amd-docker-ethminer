@@ -3,7 +3,23 @@ services:
   gpu0:
     image: cryptojunkies/ethminer:latest-amd
     hostname: ${HOSTNAME}
+    devices:
+      - "/dev/dri:/dev/dri"
     environment:
-      ETH_ADDr: ${ETH_ADDY}
-      GPU_ID: "0"
+      ETH_ADDR: 0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763
+      GPU_ID: 0
     restart: always
+    command: [ "/ethminer/ethminer", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-0@us1.ethermine.org:4444", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-0@us2.ethermine.org:4444", "-G", "--opencl-device", "0" ]
+
+  gpu0:
+    image: cryptojunkies/ethminer:latest-amd
+    hostname: ${HOSTNAME}
+    devices:
+      - "/dev/dri:/dev/dri"
+    environment:
+      ETH_ADDR: 0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763
+      GPU_ID: 0
+    restart: always
+    command: [ "/ethminer/ethminer", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-0@us1.ethermine.org:4444", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-0@us2.ethermine.org:4444", "-G", "--opencl-device", "0" ]
+
+    
