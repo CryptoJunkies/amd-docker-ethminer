@@ -12,7 +12,7 @@ docker build -t cryptojunkies/ethminer:latest-amd .
 
 ## Usage
 
-docker run --hostname=${HOSTNAME} --env GPU_ID='0' --env ETH_ADDR='0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763' --device /dev/dri:/dev/dri cryptojunkies/ethminer:latest-amd
+docker run --hostname=${HOSTNAME} --env GPU_ID='0' --env ETH_ADDR='0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763' --device /dev/dri:/dev/dri cryptojunkies/ethminer:latest-amd \
 
 ## Ethminer example for testing outside container
 export ETH_ADDR='0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763' &&\
