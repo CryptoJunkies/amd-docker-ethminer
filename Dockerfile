@@ -34,4 +34,4 @@ WORKDIR /ethminer
 
 EXPOSE 3333/tcp
 
-CMD [ "/ethminer/ethminer", "-p", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}-${GPU_ID}.${HOSTNAME}@us2.ethermine.org:4444", "-HWMON", "1", "-R", "-U", "-G", "--farm-recheck", "2000", "--opencl-device", "${GPU_ID}" ]
+CMD [ "/ethminer/ethminer", "-p", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}-${GPU_ID}.${HOSTNAME}@us2.ethermine.org:4444", "-G", "--opencl-device", "${GPU_ID}" ]
