@@ -39,4 +39,4 @@ RUN mkdir /ethminer \
 EXPOSE 3333/tcp
 
 ENTRYPOINT /root/gomining.sh
-#CMD [ "/ethminer/ethminer", "---report-hr", "--HWMON", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us2.ethermine.org:4444", "-G", "--opencl-device", "$GPU_ID", "--api-port", "${API_PORT}"]
+#CMD [ "/ethminer/ethminer", "---report-hr", "--HWMON", "1", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us2.ethermine.org:4444", "-G", "--opencl-device", "$GPU_ID", "--api-port", "${API_PORT}"]
