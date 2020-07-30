@@ -26,13 +26,17 @@ RUN wget -O amd_driver.tar.xz ${AMD_DRIVER} \
  && rm -rf ./driver \
  && rm -rf /var/lib/apt/lists/*
 
+COPY gomining.sh /root
+
 RUN mkdir /ethminer \
  && wget ${MINER_URL} \
  && tar -xvf ./*.tar.gz -C /ethminer --strip-components 1 \
- && rm ./*.tar.gz
+ && rm ./*.tar.gz \
+ && chmod +x /root/gomining.sh
 
 WORKDIR /ethminer
 
 EXPOSE 3333/tcp
 
-CMD [ "/ethminer/ethminer", "---report-hr", "--HWMON", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us2.ethermine.org:4444", "-G", "--opencl-device", "$GPU_ID", "--api-port", "${API_PORT}"]
+ENTRYPOINT /root/gomining.sh
+#CMD [ "/ethminer/ethminer", "---report-hr", "--HWMON", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444", "-P", "stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us2.ethermine.org:4444", "-G", "--opencl-device", "$GPU_ID", "--api-port", "${API_PORT}"]
