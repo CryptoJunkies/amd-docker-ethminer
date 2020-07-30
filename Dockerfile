@@ -34,7 +34,7 @@ RUN mkdir /ethminer \
  && rm ./*.tar.gz \
  && chmod +x /root/gomining.sh
 
-WORKDIR /ethminer
+#WORKDIR /ethminer
 
 EXPOSE 3333/tcp
 

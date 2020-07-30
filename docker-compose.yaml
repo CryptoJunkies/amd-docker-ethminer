@@ -2,15 +2,25 @@ version: '3.2'
 services:
   gpu0:
     image: cryptojunkies/ethminer:latest-amd
+    environment:
+      GPU_ID=4
     devices:
       - "/dev/dri:/dev/dri"
     restart: always
-    command: [ "/ethminer/ethminer", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-0@us1.ethermine.org:4444", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-0@us2.ethermine.org:4444", "-G", "--opencl-device", "0" ]
 
   gpu1:
     image: cryptojunkies/ethminer:latest-amd
+    environment:
+      GPU_ID=5
     devices:
       - "/dev/dri:/dev/dri"
     restart: always
-    command: [ "/ethminer/ethminer", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-1@us1.ethermine.org:4444", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-1@us2.ethermine.org:4444", "-G", "--opencl-device", "1" ]
+    command: [ "/ethminer/ethminer", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-1@us1.ethermine.org:4444", "-P", "stratum://0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763.sag1-1@us2.ethermine.org:4444", "-G", "--opencl-device", "5" ]
 
+  gpu2:
+    image: cryptojunkies/ethminer:latest-amd
+    environment:
+      GPU_ID=6
+    devices:
+      - "/dev/dri:/dev/dri"
+    restart: always
