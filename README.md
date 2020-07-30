@@ -16,13 +16,12 @@ docker run --hostname=${HOSTNAME} --env GPU_ID='0' --env ETH_ADDR='0xeA2bb2f3B2d
 
 ## Ethminer example for testing outside container
 export ETH_ADDR='0xeA2bb2f3B2d8EFCb9ac561347e606fF92aF0C763' &&\
-export  GPU_ID='1' &&\
-/ethminer/ethminer \
+export  GPU_ID='0' &&\
+/minebox/miners/ethminer/ethminer \
   -P stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us1.ethermine.org:4444 \
   -P stratum://${ETH_ADDR}.${HOSTNAME}-${GPU_ID}@us2.ethermine.org:4444 \
   --opencl-device ${GPU_ID} \
-  --HWMON 1 -R -U -G --farm-recheck 2000
-
+  -G --HWMON --report-hr
 
 ## Contributing
 
